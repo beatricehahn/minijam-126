@@ -263,10 +263,10 @@ templates:
     animationFPS: 30
     visible: true
     events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
+      - eventKey: OnPointerClick
+        code: ct.rooms.switch('cutscene');
         arguments: {}
+        lib: core
     extends: {}
     lastmod: 1676702759532
     uid: g5mGHFMwNT1dj8
@@ -438,13 +438,13 @@ rooms:
         customProperties: {}
     tiles: []
     extends: {}
-    lastmod: 1676702789467
+    lastmod: 1676764370733
     events: []
     uid: TjBPL1g82wPR8F
 actions: []
 emitterTandems: []
 scripts: []
-startroom: -1
+startroom: TjBPL1g82wPR8F
 contentTypes: []
 groups:
   fonts: []
