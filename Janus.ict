@@ -159,7 +159,7 @@ textures:
     isBlank: false
     group: !<tag:yaml.org,2002:js/undefined> ''
     source: /Users/frog/Downloads/time_UI.png
-  - lastmod: 1676702752902
+  - lastmod: 1676764815539
     type: texture
     name: button_placeholder
     untill: 0
@@ -264,7 +264,7 @@ templates:
     visible: true
     events:
       - eventKey: OnPointerClick
-        code: ct.rooms.switch('cutscene');
+        code: ct.rooms.switch('scene01');
         arguments: {}
         lib: core
     extends: {}
@@ -441,6 +441,33 @@ rooms:
     lastmod: 1676764370733
     events: []
     uid: TjBPL1g82wPR8F
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: scene01
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds: []
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1676764800505
+    events: []
+    uid: wrwDk1Bg2zhnGn
 actions: []
 emitterTandems: []
 scripts: []
