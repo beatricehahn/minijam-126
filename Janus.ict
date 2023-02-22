@@ -1,15 +1,118 @@
 ctjsVersion: 3.2.0
 language: typescript
-notes: ''
+notes: >
+  // array for all the lines in the intro
+
+  var dialogue = [
+      "Where am I",
+      "I'm...in a museum?",
+      "What the- Who are you??",
+      "You can call me... Janus.",
+      "I guess it fits the get-up. So what is this, a kidnapping?",
+      "No.",
+      "Well, then I'm leaving"
+  ]
+
+
+  if (!this.transitionStarted) {
+      this.transitionStarted = true;
+      ct.transition.slideOut(750)
+      .then(() => {
+          ct.rooms.switch(ct.room.nextLevel);
+      });
+  }
+
+
+  // A_rm Janus:  
+
+  // Regardless of your choices, you were left feeling regretful, always of the
+  belief that things would have been different, you would have been happier, had
+  you been given more time.
+
+  // (Next)
+
+
+  // B_rm Player:
+
+  // Can’t I try again?
+
+  // (Next)
+
+
+  // C_rm Janus: 
+
+  // We only use time to move forward. At least, that is the rule we are bound
+  to. 
+
+  // (Next)
+
+
+  // D_rm Player:
+
+  // You almost sound resentful, but why should it matter to you? You don’t even
+  know me.
+
+  // (Next)
+
+
+  // E_rm Janus:
+
+  // But I do know you. 
+
+  // (reveals mask)
+
+
+
+  // F_rm Player:
+
+  // …I …don’t understand..
+
+  // (Next)
+
+
+  // G_rm Janus: (--hope soundtrack on to end of game–)
+
+  // I am a fragment. An everlasting echo in your heart that will grow with you
+  into old age. 
+
+  // (Next)
+
+  // It’s alright. Eventually you’ll be able to come to terms. These different
+  choices that we make in life, they don’t always play by the rules. Though
+  we’re not bound by these choices, we act like they are. And when we aren’t
+  happy with the choices that we are given, we’re often weighing the cost of
+  each, but time is a resource we are not meant to control. You cannot buy time
+  for one path without losing time for another. 
+
+  // (Next)
+
+
+  // H_rm Janus
+
+  // And I don’t resent you. I was only doing my best at the age I once was, but
+  I ignored this realization for many years while I spent them with brewing
+  sadness. I want to tell you - us, that time isn’t worth that much when you
+  spend it in regret. The sands that compel us forward are plenty warm still,
+  for kindling flames, laying a new path under a clearer sky, and rewriting
+  ourselves before we become our own history. 
+
+
+  // I_rm (Next)
+
+  // So go on, you can leave through the door behind you. Good luck. I’ll see
+  you again when you are the future.
+
+
+  // (black screen)
+
+  // *switch to main menu*
+
+
+  // Main Menu
 libs:
-  place:
-    gridX: 1024
-    gridY: 1024
   fittoscreen:
     mode: scaleFit
   pointer: {}
-  keyboard: {}
-  keyboard.polyfill: {}
   sound.howler: {}
   akatemplate:
     toptop: ' '
@@ -18,60 +121,14 @@ libs:
   PIXI.MultiStyleText: {}
   transition: {}
   tween: {}
-  yarn:
-    skipEmpty: true
-    magic: true
+  place:
+    undefined: ''
+    gridX: 512
+    gridY: 512
+    debugMode: false
+    debugText: 16
 textures:
-  - lastmod: 1676784967679
-    type: texture
-    name: doors_placeholder
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 200
-      - 150
-    marginx: 0
-    marginy: 0
-    imgWidth: 400
-    imgHeight: 300
-    width: 400
-    height: 300
-    offx: 0
-    offy: 0
-    origname: i5F5Hpgh3mkNjTB.png
-    shape: strip
-    left: 150
-    right: 150
-    top: 150
-    bottom: 150
-    uid: 5F5Hpgh3mkNjTB
-    padding: 1
-    isBlank: false
-    group: !<tag:yaml.org,2002:js/undefined> ''
-    source: /Users/frog/Downloads/doors placeholder.png
-    stripPoints:
-      - x: 23
-        'y': -77.52380952380952
-      - x: 103.01470947265625
-        'y': -125.98316955566406
-      - x: 167
-        'y': -9
-      - x: 143.63445754278274
-        'y': 58.49382237025668
-      - x: 142.0952380952381
-        'y': 122.04761904761905
-      - x: -118
-        'y': 121
-      - x: -136.0329095749628
-        'y': 31.96921139671689
-      - x: -128
-        'y': -60
-      - x: -51.98529052734375
-        'y': -139.98316955566406
-    closedStrip: true
-  - lastmod: 1676776327346
+  - lastmod: 1676959467761
     type: texture
     name: room_placeholder
     untill: 0
@@ -79,8 +136,8 @@ textures:
       - 1
       - 1
     axis:
-      - 0
-      - 0
+      - 750
+      - 500
     marginx: 0
     marginy: 0
     imgWidth: 1500
@@ -91,10 +148,10 @@ textures:
     offy: 0
     origname: irtWPjP3LLrCG4p.png
     shape: rect
-    left: 0
-    right: 1500
-    top: 0
-    bottom: 1000
+    left: 750
+    right: 750
+    top: 500
+    bottom: 500
     uid: rtWPjP3LLrCG4p
     padding: 1
     isBlank: false
@@ -218,34 +275,6 @@ textures:
     isBlank: false
     group: !<tag:yaml.org,2002:js/undefined> ''
     source: /Users/frog/Downloads/button placeholder.png
-  - lastmod: 1676766391186
-    type: texture
-    name: textbox
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 0
-      - 0
-    marginx: 0
-    marginy: 0
-    imgWidth: 500
-    imgHeight: 300
-    width: 500
-    height: 300
-    offx: 0
-    offy: 0
-    origname: i3DkjkgnP6jbp8q.png
-    shape: rect
-    left: 0
-    right: 500
-    top: 0
-    bottom: 300
-    uid: 3DkjkgnP6jbp8q
-    padding: 1
-    isBlank: false
-    group: !<tag:yaml.org,2002:js/undefined> ''
   - lastmod: 1676777837177
     type: texture
     name: next arrow
@@ -274,63 +303,6 @@ textures:
     padding: 1
     isBlank: false
     group: !<tag:yaml.org,2002:js/undefined> ''
-  - lastmod: 1676785089514
-    type: texture
-    name: doors_final
-    untill: 0
-    grid:
-      - 1
-      - 1
-    axis:
-      - 500
-      - 375
-    marginx: 0
-    marginy: 0
-    imgWidth: 1000
-    imgHeight: 750
-    width: 1000
-    height: 750
-    offx: 0
-    offy: 0
-    origname: ig4mL49pNd2Trq9.png
-    shape: strip
-    left: 500
-    right: 500
-    top: 375
-    bottom: 375
-    uid: g4mL49pNd2Trq9
-    padding: 1
-    isBlank: false
-    group: !<tag:yaml.org,2002:js/undefined> ''
-    source: /Users/frog/Downloads/doors_final.png
-    stripPoints:
-      - x: 53.333333333333336
-        'y': -215.00000000000003
-      - x: 225.37255859375003
-        'y': -316.2884521484375
-      - x: 345.37255859374994
-        'y': -193.62178548177081
-      - x: 313.37255859375
-        'y': -121.62178548177081
-      - x: 377.3333333333333
-        'y': -102.66666666666667
-      - x: 360.6666666666667
-        'y': 308.3333333333333
-      - x: -294
-        'y': 303
-      - x: -262.62744140625006
-        'y': 118.37821451822919
-      - x: -337.33333333333337
-        'y': -116
-      - x: -267.9607747395833
-        'y': -134.95511881510416
-      - x: -198.62744140625006
-        'y': -164.2884521484375
-      - x: -206.62744140624994
-        'y': -265.6217854817708
-      - x: -121.29410807291667
-        'y': -337.62178548177087
-    closedStrip: true
   - lastmod: 1676785141833
     type: texture
     name: next_button
@@ -360,24 +332,167 @@ textures:
     isBlank: false
     group: !<tag:yaml.org,2002:js/undefined> ''
     source: /Users/frog/Downloads/next button.png
+  - lastmod: 1677103474067
+    type: texture
+    name: rightdoor
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 719.5087719298245
+      - 427.49122807017545
+    marginx: 0
+    marginy: 0
+    imgWidth: 1000
+    imgHeight: 750
+    width: 1000
+    height: 750
+    offx: 0
+    offy: 0
+    origname: iNtjw9Mzcr77F88.png
+    shape: rect
+    left: 130
+    right: 120
+    top: 170
+    bottom: 190
+    uid: Ntjw9Mzcr77F88
+    padding: 1
+    isBlank: false
+    group: !<tag:yaml.org,2002:js/undefined> ''
+    source: /Users/frog/Downloads/rightdoor.png
+  - lastmod: 1677100774227
+    type: texture
+    name: leftdoor
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 344
+      - 416
+    marginx: 0
+    marginy: 0
+    imgWidth: 1000
+    imgHeight: 750
+    width: 1000
+    height: 750
+    offx: 0
+    offy: 0
+    origname: iwzFhjg7tc1rk3c.png
+    shape: strip
+    left: 500
+    right: 500
+    top: 375
+    bottom: 375
+    uid: wzFhjg7tc1rk3c
+    padding: 1
+    isBlank: false
+    group: !<tag:yaml.org,2002:js/undefined> ''
+    source: /Users/frog/Downloads/leftdoor.png
+    stripPoints:
+      - x: -37
+        'y': 208
+      - x: 131
+        'y': 161
+      - x: 39
+        'y': -177
+      - x: -131
+        'y': -135
+    closedStrip: true
+  - lastmod: 1677101260058
+    type: texture
+    name: doors_placeholder
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 500
+      - 375
+    marginx: 0
+    marginy: 0
+    imgWidth: 1000
+    imgHeight: 750
+    width: 1000
+    height: 750
+    offx: 0
+    offy: 0
+    origname: izqBb5p5Rc7Cw52.png
+    shape: rect
+    left: 304
+    right: 360
+    top: 323
+    bottom: 305
+    uid: zqBb5p5Rc7Cw52
+    padding: 1
+    isBlank: false
+    group: !<tag:yaml.org,2002:js/undefined> ''
+    source: /Users/frog/Downloads/doors placeholder.png
+    stripPoints: []
+    closedStrip: true
+  - lastmod: 1677097899434
+    type: texture
+    name: dark_room
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 750
+      - 500
+    marginx: 0
+    marginy: 0
+    imgWidth: 1500
+    imgHeight: 1000
+    width: 1500
+    height: 1000
+    offx: 0
+    offy: 0
+    origname: i5tTJpKPhmCg9gN.png
+    shape: rect
+    left: 750
+    right: 750
+    top: 500
+    bottom: 500
+    uid: 5tTJpKPhmCg9gN
+    padding: 1
+    isBlank: false
+    group: !<tag:yaml.org,2002:js/undefined> ''
+    source: /Users/frog/Downloads/dark room.png
+    tiled: true
+  - lastmod: 1677097797469
+    type: texture
+    name: final_room
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 0
+      - 0
+    marginx: 0
+    marginy: 0
+    imgWidth: 1500
+    imgHeight: 1000
+    width: 1500
+    height: 1000
+    offx: 0
+    offy: 0
+    origname: icTTJzQMJCBTQK9.png
+    shape: rect
+    left: 0
+    right: 1500
+    top: 0
+    bottom: 1000
+    uid: cTTJzQMJCBTQK9
+    padding: 1
+    isBlank: false
+    group: !<tag:yaml.org,2002:js/undefined> ''
+    source: /Users/frog/Downloads/final room.png
+    tiled: true
 skeletons: []
 templates:
-  - type: template
-    name: doors_placeholder
-    depth: 0
-    texture: 5F5Hpgh3mkNjTB
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
-        arguments: {}
-    extends: {}
-    lastmod: 1676697851930
-    uid: LfwGF2hKqKTMDF
   - type: template
     name: janus_placeholder
     depth: 0
@@ -390,20 +505,14 @@ templates:
       - eventKey: OnCreate
         code: |+
           this.tint = 0xFF0000;
-          ct.tween.add({
-              obj: this.scale,
-              fields: {
-                  x: 0.8,
-                  y: 0.8
-              },
-              duration: 2000,
-              curve: ct.tween.easeOutQuad
-          });
+          this.scale.x = 0.6;
+          this.scale.y = 0.6;
+
 
         arguments: {}
         lib: core
     extends: {}
-    lastmod: 1676777444912
+    lastmod: 1677091370659
     uid: 2N8P7khCTWQbKt
   - type: template
     name: player_placeholder
@@ -414,12 +523,15 @@ templates:
     animationFPS: 30
     visible: true
     events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
+      - eventKey: OnCreate
+        code: |-
+          this.tint = 0xFFC0CB;
+          this.scale.x = 0.6;
+          this.scale.y = 0.6;
         arguments: {}
+        lib: core
     extends: {}
-    lastmod: 1676699695194
+    lastmod: 1677091469110
     uid: NfkLr5QWrQFQcq
   - type: template
     name: time_UI
@@ -430,12 +542,29 @@ templates:
     animationFPS: 30
     visible: true
     events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
+      - eventKey: OnCreate
+        code: |-
+          this.tint = 0xC4FEFF;
+
+          this.text = new PIXI.Text(ct.room.timeTotal, {
+                  fill: 0xffffff,
+                  fontWeight: 400,
+                  fontSize: 50,
+                  wordWrap: true,
+                  wordWrapWidth: 110,
+                  align: 'center'
+          });
+          this.text.x = 50;
+          this.text.anchor.y = 0.4;
+          this.addChild(this.text);
         arguments: {}
+        lib: core
+      - eventKey: OnDraw
+        code: 'this.text.text = `${ct.room.timeTotal}`;'
+        arguments: {}
+        lib: core
     extends: {}
-    lastmod: 1676700962150
+    lastmod: 1677105468124
     uid: Fzfr5662zPKd1L
   - type: template
     name: button_placeholder
@@ -449,99 +578,16 @@ templates:
       - eventKey: OnPointerClick
         code: |-
           ct.sound.spawn('Select');
-          ct.rooms.switch('scene01');
+          ct.rooms.switch(ct.room.nextLevel);
         arguments: {}
         lib: core
       - eventKey: OnCreate
-        code: |-
-          this.depth = 1;
-          this.tint = 0x00FFFF;
+        code: this.depth = 1;
         arguments: {}
         lib: core
     extends: {}
-    lastmod: 1676792818441
+    lastmod: 1677092768998
     uid: g5mGHFMwNT1dj8
-  - type: template
-    name: textbox
-    depth: 0
-    texture: 3DkjkgnP6jbp8q
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: |-
-          this.text = new PIXI.Text(this.option, {
-              fill: 0x446ADB,
-              fontWeight: 600,
-              fontSize: 32,
-              wordWrap: true,
-              wordWrapWidth: 900,
-              align: 'center'
-          });
-          this.text.anchor.x = this.text.anchor.y = 0.5;
-          this.addChild(this.text);
-
-          this.scale.x = this.scale.y = 0;
-          ct.tween.add({
-              obj: this.scale,
-              fields: {
-                  x: 1,
-                  y: 1
-              },
-              duration: 350,
-              curve: ct.tween.easeOutQuad
-          });
-        arguments: {}
-    extends: {}
-    lastmod: 1676766403118
-    uid: mhHDMkzmznMwPn
-  - type: template
-    name: room_placeholder
-    depth: 0
-    texture: rtWPjP3LLrCG4p
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnStep
-        lib: core
-        code: this.move();
-        arguments: {}
-    extends: {}
-    lastmod: 1676776319943
-    uid: K9h7tkTrt7761r
-  - type: template
-    name: next arrow
-    depth: 0
-    texture: 3HCWpjhW5kPhQ3
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events:
-      - eventKey: OnPointerClick
-        code: ct.rooms.switch('scene02');
-        arguments: {}
-        lib: core
-    extends: {}
-    lastmod: 1676777881678
-    uid: DTPGHCJ6w3p22t
-  - type: template
-    name: doors_final
-    depth: 0
-    texture: g4mL49pNd2Trq9
-    playAnimationOnStart: false
-    loopAnimation: true
-    animationFPS: 30
-    visible: true
-    events: []
-    extends: {}
-    lastmod: 1676784841836
-    uid: 5CmQzjjrTb82D2
   - type: template
     name: next_button
     depth: 0
@@ -550,10 +596,151 @@ templates:
     loopAnimation: true
     animationFPS: 30
     visible: true
+    events:
+      - eventKey: OnCreate
+        code: |-
+          this.scale.x = 0.3;
+          this.scale.y = 0.3;
+        arguments: {}
+        lib: core
+      - eventKey: OnPointerClick
+        code: |-
+          // if (!this.transitionStarted) {
+          //     this.transitionStarted = true;
+          //     ct.transition.slideOut(750)
+          //     .then(() => {
+          //         ct.rooms.switch(ct.room.nextLevel);
+          //     });
+          // }
+
+          ct.rooms.switch(ct.room.nextLevel);
+        arguments: {}
+        lib: core
+    extends: {}
+    lastmod: 1677102669759
+    uid: gmzTF9ncbFH5cN
+  - type: template
+    name: statue
+    depth: 0
+    texture: zqBb5p5Rc7Cw52
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
     events: []
     extends: {}
-    lastmod: 1676792668070
-    uid: gmzTF9ncbFH5cN
+    lastmod: 1677101482872
+    uid: 9NTfLBnBGMCrfj
+  - type: template
+    name: left_door
+    depth: 0
+    texture: wzFhjg7tc1rk3c
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnPointerClick
+        code: ''
+        arguments: {}
+        lib: core
+      - eventKey: OnCreate
+        code: |-
+          if (ct.room.name == "door01") {
+              const lineA = "(-1) study and graduate as fast as possible";
+              this.text = new PIXI.Text(lineA, {
+                  fill: 0xffffff,
+                  fontWeight: 400,
+                  fontSize: 25,
+                  wordWrap: true,
+                  wordWrapWidth: 110,
+                  align: 'center'
+              });
+              this.text.anchor.x = this.text.anchor.y = 0.5;
+              this.addChild(this.text);
+          } else if (ct.room.name == "door02") {
+              const lineB = "(-3) Put family needs before your career goals";
+              this.text = new PIXI.Text("test left", {
+                  fill: 0xffffff,
+                  fontWeight: 400,
+                  fontSize: 20,
+                  wordWrap: true,
+                  wordWrapWidth: 110,
+                  align: 'center'
+              });
+              this.text.anchor.x = this.text.anchor.y = 0.5;
+              this.addChild(this.text);
+          } else if (ct.room.name == "door03") {
+              const lineC = "(-3) Choose to self-heal, find happiness";
+              this.text = new PIXI.Text(lineC, {
+                  fill: 0xffffff,
+                  fontWeight: 400,
+                  fontSize: 20,
+                  wordWrap: true,
+                  wordWrapWidth: 110,
+                  align: 'center'
+              });
+              this.text.anchor.x = this.text.anchor.y = 0.5;
+              this.addChild(this.text);
+          }
+        arguments: {}
+        lib: core
+    extends: {}
+    lastmod: 1677105345597
+    uid: kk8B4J65PgJp71
+  - type: template
+    name: right_door
+    depth: 0
+    texture: Ntjw9Mzcr77F88
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnCreate
+        code: |-
+          if (ct.room.name == "door01") {
+              const lineA = "(-3) study, change career paths, be happier";
+              this.text = new PIXI.Text(lineA, {
+                  fill: 0xffffff,
+                  fontWeight: 400,
+                  fontSize: 25,
+                  wordWrap: true,
+                  wordWrapWidth: 120,
+                  align: 'center'
+              });
+              this.text.anchor.x = this.text.anchor.y = 0.5;
+              this.addChild(this.text);
+          } else if (ct.room.name == "door02") {
+              const lineB = "(-2) Move away, focus on family, grow distant";
+              this.text = new PIXI.Text("test left", {
+                  fill: 0xffffff,
+                  fontWeight: 400,
+                  fontSize: 20,
+                  wordWrap: true,
+                  wordWrapWidth: 110,
+                  align: 'center'
+              });
+              this.text.anchor.x = this.text.anchor.y = 0.5;
+              this.addChild(this.text);
+          } else if (ct.room.name == "door03") {
+              const lineC = "(-1) Ignore past disagreements, move on";
+              this.text = new PIXI.Text(lineC, {
+                  fill: 0xffffff,
+                  fontWeight: 400,
+                  fontSize: 20,
+                  wordWrap: true,
+                  wordWrapWidth: 110,
+                  align: 'center'
+              });
+              this.text.anchor.x = this.text.anchor.y = 0.5;
+              this.addChild(this.text);
+          }
+        arguments: {}
+        lib: core
+    extends: {}
+    lastmod: 1677103566948
+    uid: DwtL4hk2Nzqk1n
 sounds:
   - name: Select
     uid: LGPDqGf4JjH42R
@@ -562,6 +749,20 @@ sounds:
     lastmod: 1676831800065
     poolSize: 1
     origname: sLGPDqGf4JjH42R.ogg
+  - name: main_menu
+    uid: 9WNjpdwQqH4k2Q
+    isMusic: true
+    type: sound
+    lastmod: 1676940601960
+    poolSize: 5
+    origname: s9WNjpdwQqH4k2Q.wav
+  - name: intro_dialogue
+    uid: 57p8hdw9TRb4t8
+    isMusic: true
+    type: sound
+    lastmod: 1676941569529
+    poolSize: 5
+    origname: s57p8hdw9TRb4t8.wav
 styles:
   - name: Style_wnjfhF
     uid: DqJh85pFwnjfhF
@@ -570,81 +771,10 @@ styles:
       family: sans-serif
       size: 12
       weight: 400
-      italic: false
-    lastmod: 1676700810450
+      italic: true
+    lastmod: 1676959615894
 fonts: []
 rooms:
-  - type: room
-    oncreate: ''
-    onstep: ''
-    ondraw: ''
-    onleave: ''
-    gridX: 64
-    gridY: 64
-    diagonalGrid: false
-    simulate: true
-    width: 1280
-    height: 720
-    restrictCamera: false
-    restrictMaxX: 1280
-    restrictMinX: 1280
-    restrictMaxY: 720
-    restrictMinY: 720
-    isUi: false
-    name: cutscene
-    backgroundColor: '#000000'
-    follow: -1
-    backgrounds:
-      - depth: -10
-        texture: rtWPjP3LLrCG4p
-        shiftX: -96
-        shiftY: -112
-        parallaxX: 1
-        parallaxY: 1
-        movementX: 0
-        movementY: 0
-        scaleX: 1
-        scaleY: 0.9
-        repeat: no-repeat
-    copies:
-      - x: 384
-        'y': 192
-        opacity: 1
-        tint: 7560027
-        scale:
-          x: 1.44
-          'y': 1.42666667
-        rotation: 0
-        uid: LfwGF2hKqKTMDF
-        exts: {}
-        customProperties: {}
-      - x: 1009
-        'y': 428
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 0.60666667
-          'y': 0.60666667
-        rotation: 0
-        uid: 2N8P7khCTWQbKt
-        exts: {}
-        customProperties: {}
-      - x: 64
-        'y': 24
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 0.64
-          'y': 0.64
-        rotation: 0
-        uid: NfkLr5QWrQFQcq
-        exts: {}
-        customProperties: {}
-    tiles: []
-    extends: {}
-    lastmod: 1676792912556
-    events: []
-    uid: fHM5rH1kG6wjP4
   - type: room
     oncreate: ''
     onstep: ''
@@ -680,7 +810,7 @@ rooms:
         customProperties: {}
     tiles: []
     extends: {}
-    lastmod: 1676701817338
+    lastmod: 1677101088794
     events: []
     uid: pmqGMgr7t5f6mp
   - type: room
@@ -694,7 +824,7 @@ rooms:
     simulate: true
     width: 1280
     height: 720
-    restrictCamera: false
+    restrictCamera: true
     restrictMaxX: 1280
     restrictMinX: 1280
     restrictMaxY: 720
@@ -704,36 +834,25 @@ rooms:
     backgroundColor: '#000000'
     follow: -1
     backgrounds:
-      - depth: 0
-        texture: rtWPjP3LLrCG4p
-        shiftX: 0
-        shiftY: -80
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -70
         parallaxX: 1
         parallaxY: 1
         movementX: 0
         movementY: 0
         scaleX: 0.9
-        scaleY: 0.9
+        scaleY: 0.8
         repeat: no-repeat
     copies:
-      - x: 326
-        'y': 395.5
+      - x: 896
+        'y': 568.8
         opacity: 1
         tint: 16777215
         scale:
-          x: 1.1400000000000001
-          'y': 1.1400000000000001
-        rotation: 0
-        uid: 5CmQzjjrTb82D2
-        exts: {}
-        customProperties: {}
-      - x: 832
-        'y': 172
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 0.64
-          'y': 0.64
+          x: 0.384
+          'y': 0.384
         rotation: 0
         uid: g5mGHFMwNT1dj8
         exts: {}
@@ -751,10 +870,31 @@ rooms:
         uid: g5mGHFMwNT1dj8
         exts: {}
         customProperties: {}
+      - x: -128
+        'y': 0
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
     tiles: []
     extends: {}
-    lastmod: 1676792825138
-    events: []
+    lastmod: 1677099410455
+    events:
+      - eventKey: OnRoomStart
+        code: |-
+          // ct.sound.spawn('main_menu',{
+          //     loop: true,
+          //     volume: 0.3
+          // });
+
+          this.nextLevel = '01';
+        arguments: {}
+        lib: core
     uid: TjBPL1g82wPR8F
   - type: room
     oncreate: ''
@@ -773,52 +913,65 @@ rooms:
     restrictMaxY: 720
     restrictMinY: 720
     isUi: false
-    name: scene01
+    name: a_rm
     backgroundColor: '#000000'
     follow: -1
-    backgrounds: []
-    copies:
-      - x: 960
-        'y': 576
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 1
-          'y': 1
-        rotation: 0
-        uid: DTPGHCJ6w3p22t
-        exts: {}
-        customProperties: {}
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
     tiles: []
     extends: {}
-    lastmod: 1676777909463
+    lastmod: 1677099035161
     events:
       - eventKey: OnRoomStart
-        code: |-
-          this.blurb = new PIXI.Text('Where am I…', {
+        code: >
+          ct.transition.fadeIn(2000);
+
+          //ct.rooms.addBg('room_placeholder', -10);
+
+          this.nextLevel = "b_rm";
+
+
+          const line = "Regardless of your choices, you were left feeling
+          regretful, always of the belief that things would have been different,
+          you would have been happier, had you been given more time."
+
+
+          this.blurb = new PIXI.Text(line, {
               fill: 0xffffff,
-              fontSize: 50,
+              fontSize: 25,
               wordWrap: true,
-              wordWrapWidth: 1024
+              wordWrapWidth: 400
           });
-          this.blurb.x = 300;
-          this.blurb.y = 300;
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
           this.addChild(this.blurb);
 
-          // this.scale.x = this.scale.y = 0;
-          // ct.tween.add({
-          //     obj: this.scale,
-          //     fields: {
-          //         x: 1,
-          //         y: 1
-          //     },
-          //     duration: 2000,
-          //     curve: ct.tween.easeOutQuad
-          // });
-              
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 360);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
         arguments: {}
         lib: core
-    uid: wrwDk1Bg2zhnGn
+    uid: dDRQnfhLH74MRj
   - type: room
     oncreate: ''
     onstep: ''
@@ -836,42 +989,53 @@ rooms:
     restrictMaxY: 720
     restrictMinY: 720
     isUi: false
-    name: scene02
+    name: b_rm
     backgroundColor: '#000000'
     follow: -1
-    backgrounds: []
-    copies:
-      - x: -192
-        'y': -128
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 1
-          'y': 1
-        rotation: 0
-        uid: K9h7tkTrt7761r
-        exts: {}
-        customProperties: {}
-      - x: 638.99999925
-        'y': 449.33333433
-        opacity: 1
-        tint: 16777215
-        scale:
-          x: 0.57111111
-          'y': 0.57111111
-        rotation: 0
-        uid: 2N8P7khCTWQbKt
-        exts: {}
-        customProperties: {}
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
     tiles: []
     extends: {}
-    lastmod: 1676777212976
+    lastmod: 1677099665687
     events:
       - eventKey: OnRoomStart
-        code: ct.transition.fadeIn(2000);
+        code: |
+          // add music here
+          //ct.sound.spawn('intro_dialogue');
+
+          ct.transition.fadeIn(2000);
+          this.nextLevel = "c_rm";
+          const line = "Can’t I try again?";
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+          this.blurb.x = 700;
+          this.blurb.y = 400;
+          this.addChild(this.blurb);
+
+          // programmatically summon player sprite
+          ct.templates.copy('player_placeholder', 1, 1);
+
+          // programmatically summon the next button
+          ct.templates.copy('next_button', 1000, 650);
         arguments: {}
         lib: core
-    uid: zhppwD7Bq7t28D
+    uid: Bw6q8k7gq3mPRw
   - type: room
     oncreate: ''
     onstep: ''
@@ -889,46 +1053,1749 @@ rooms:
     restrictMaxY: 720
     restrictMinY: 720
     isUi: false
-    name: scene09
+    name: c_rm
     backgroundColor: '#000000'
     follow: -1
-    backgrounds: []
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677099847170
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          ct.transition.fadeIn(2000);
+
+          this.nextLevel = "d_rm";
+
+
+          const line = "We only use time to move forward. At least, that is the
+          rule we are bound to." 
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 300);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: TwzhHqRgWFh7mp
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: d_rm
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677099877352
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          // add music here
+
+          //ct.sound.spawn('intro_dialogue');
+
+
+          ct.transition.fadeIn(2000);
+
+          this.nextLevel = "e_rm";
+
+          const line = "You almost sound resentful, but why should it matter to
+          you? You don’t even know me.";
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 700;
+
+          this.blurb.y = 400;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('player_placeholder', 1, 1);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: rj5MQDhG5bnpfc
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: e_rm
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677099914167
+    events:
+      - eventKey: OnRoomStart
+        code: |
+          ct.transition.fadeIn(2000);
+          this.nextLevel = "f_rm";
+
+          const line = "But I do know you." 
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+          this.blurb.x = 170;
+          this.blurb.y = 150;
+          this.addChild(this.blurb);
+
+          // programmatically summon player sprite
+          ct.templates.copy('janus_placeholder', 800, 300);
+
+          // programmatically summon the next button
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: rJTLMchhRKH3dT
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: f_rm
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677099937934
+    events:
+      - eventKey: OnRoomStart
+        code: |
+          // add music here
+          //ct.sound.spawn('intro_dialogue');
+
+          ct.transition.fadeIn(2000);
+          this.nextLevel = "g_rm";
+          const line = "…I don’t understand..";
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+          this.blurb.x = 700;
+          this.blurb.y = 400;
+          this.addChild(this.blurb);
+
+          // programmatically summon player sprite
+          ct.templates.copy('player_placeholder', 1, 1);
+
+          // programmatically summon the next button
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: PG7J3qrTmgTN5J
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: g_rm
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677099964667
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          ct.transition.fadeIn(2000);
+
+          this.nextLevel = "g2_rm";
+
+
+          const line = "I am a fragment. An everlasting echo in your heart that
+          will grow with you into old age. It’s alright. Eventually you’ll be
+          able to come to terms. These different choices that we make in life,
+          they don’t always play by the rules. Though we’re not bound by these
+          choices, we act like they are." 
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 300);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: k6764RJmDMJffR
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: h_rm
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677100013716
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          //ct.transition.fadeIn(2000);
+
+          this.nextLevel = "h2_rm";
+
+
+          const line = "I don’t resent you by the way. I was only doing my best
+          at the age I once was, but I ignored this realization for many years
+          while I spent them with brewing sadness." 
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 300);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: fL4fKzwM629MJB
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: i_rm
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677100057550
+    events:
+      - eventKey: OnRoomStart
+        code: >-
+          //ct.transition.fadeIn(2000);
+
+          this.nextLevel = "Main_Menu";
+
+
+          const line = "So go on, you can leave through the door behind you.
+          Good luck. I’ll see you again when you are the future." 
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 300);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: 4KLNcBGMnkbgwP
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: g2_rm
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677099985417
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          //ct.transition.fadeIn(2000);
+
+          this.nextLevel = "h_rm";
+
+
+          const line = "And when we aren’t happy with the choices that we are
+          given, we’re often weighing the cost of each, but time is a resource
+          we are not meant to control. You cannot buy time for one path without
+          losing time for another." 
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 300);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: 84FQ2fn9GCwcNL
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: h2_rm
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: cTTJzQMJCBTQK9
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677100038234
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          //ct.transition.fadeIn(2000);
+
+          this.nextLevel = "i_rm";
+
+
+          const line = "I want to tell you - us, that time isn’t worth that much
+          when you spend it in regret. The sands that compel us forward are
+          plenty warm still, for kindling flames, laying a new path under a
+          clearer sky, and rewriting ourselves before we become our own
+          history." 
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 300);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: 4zhFFhz7BjddF9
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: true
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '01'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677101160542
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          // add music here
+
+          //ct.sound.spawn('intro_dialogue');
+
+
+          ct.transition.fadeIn(2000);
+
+          this.nextLevel = "02";
+
+          const line = "Where am I? It’s so dark… it looks like nowhere…
+          nothing.";
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 700;
+
+          this.blurb.y = 400;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('player_placeholder', 1, 1);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: BnRFb8K4dDr28c
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '03'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098593045
+    events:
+      - eventKey: OnRoomStart
+        code: |
+          // add music here
+          //ct.sound.spawn('intro_dialogue');
+
+          ct.transition.fadeIn(2000);
+          this.nextLevel = "04";
+          const line = "what the- who are you?";
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+          this.blurb.x = 700;
+          this.blurb.y = 400;
+          this.addChild(this.blurb);
+
+          // programmatically summon player sprite
+          ct.templates.copy('player_placeholder', 1, 1);
+
+          // programmatically summon the next button
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: rgmNzDG2zPfPjW
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '05'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098689579
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          // add music here
+
+          //ct.sound.spawn('intro_dialogue');
+
+
+          ct.transition.fadeIn(2000);
+
+          this.nextLevel = "06";
+
+          const line = "I didn’t come here because I wanted to, I just ended
+          up…whatever this is. But you’re dodging my question. ";
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 700;
+
+          this.blurb.y = 400;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('player_placeholder', 1, 1);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: nz8C1gKJPh3Qr4
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: 09
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098817143
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          // add music here
+
+          //ct.sound.spawn('intro_dialogue');
+
+
+          ct.transition.fadeIn(2000);
+
+          this.nextLevel = "10";
+
+          const line = "I don’t know what you’re trying to accomplish by trying
+          to show that you see through me. If you already know everything then
+          you know that I want to leave!";
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 700;
+
+          this.blurb.y = 400;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('player_placeholder', 1, 1);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: dbhg3dPg9Ng8Hn
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '14'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098962726
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          // add music here
+
+          //ct.sound.spawn('intro_dialogue');
+
+
+          ct.transition.fadeIn(2000);
+
+          this.nextLevel = "15";
+
+          const line = "(Sigh. If this is a dream I guess I’d rather play it
+          through) Okay, sure, just gotta choose doors.";
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 700;
+
+          this.blurb.y = 400;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('player_placeholder', 1, 1);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: Mn9cJTmwjczhdz
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '02'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677099780436
+    events:
+      - eventKey: OnRoomStart
+        code: |
+          ct.transition.fadeIn(2000);
+          //ct.rooms.addBg('room_placeholder', -10);
+          this.nextLevel = "03";
+
+          const line = "Nowhere? Or in too many places at once?"
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+          this.blurb.x = 170;
+          this.blurb.y = 150;
+          this.addChild(this.blurb);
+
+          // programmatically summon player sprite
+          ct.templates.copy('janus_placeholder', 800, 360);
+
+          // programmatically summon the next button
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: LgLnK52mfPp2h6
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '04'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098666578
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          ct.transition.fadeIn(2000);
+
+          //ct.rooms.addBg('room_placeholder', -10);
+
+          this.nextLevel = "05";
+
+
+          const line = "You’re here because you’re wondering if you’ve been
+          spending your time all these years in vain"
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 360);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: Cr916wHqLfkJ52
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '06'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098743980
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          ct.transition.fadeIn(2000);
+
+          //ct.rooms.addBg('room_placeholder', -10);
+
+          this.nextLevel = "07";
+
+
+          const line = "My name doesn’t matter in the end. You can call me
+          Janus. Or pick another name if you want. See, I know you don’t care. "
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 360);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: hq6pHzhbLzwHdq
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '07'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098764695
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          //ct.transition.fadeIn(2000);
+
+          //ct.rooms.addBg('room_placeholder', -10);
+
+          this.nextLevel = "b_rm";
+
+
+          const line = "Because Your mind is spinning all your gears, worrying
+          about whether to call home because it looks like you’re going to be
+          home late, or whether you’re going to get home in time to submit your
+          lab report. All you’re really worried about is how much time you’re
+          wasting by being here"
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 360);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: FBhd9CH5wrMRh4
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: 08
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098792960
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          //ct.transition.fadeIn(2000);
+
+          //ct.rooms.addBg('room_placeholder', -10);
+
+          this.nextLevel = "08";
+
+
+          const line = "And there’s something else,  isn’t there. Some dark
+          grayness that looms over your shoulder…"
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 360);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: 2NGtbCWCTR2PH3
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '10'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
     copies:
-      - x: -192
-        'y': -128
+      - x: 334
+        'y': 434
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1.1400000000000001
+          'y': 1.1400000000000001
+        rotation: 0
+        uid: Fzfr5662zPKd1L
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677098842560
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          ct.transition.fadeIn(2000);
+
+          //ct.rooms.addBg('room_placeholder', -10);
+
+          this.nextLevel = "11";
+
+
+          const line = "Before you leave, you must do something first. For your
+          troubles, here, I’ll give you an hourglass full of unclaimed time. It
+          is nobody’s."
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: Nkg22GJ3w1Pbnm
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '12'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098903743
+    events:
+      - eventKey: OnRoomStart
+        code: |
+          ct.transition.fadeIn(2000);
+          //ct.rooms.addBg('room_placeholder', -10);
+          this.nextLevel = "13";
+
+          const line = "It’s simple. Here, we are at diverging roads. "
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+          this.blurb.x = 170;
+          this.blurb.y = 150;
+          this.addChild(this.blurb);
+
+          // programmatically summon player sprite
+          ct.templates.copy('janus_placeholder', 800, 360);
+
+          // programmatically summon the next button
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: LmjRwhRthNz8dz
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '13'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098930893
+    events:
+      - eventKey: OnRoomStart
+        code: >
+          //ct.transition.fadeIn(2000);
+
+          //ct.rooms.addBg('room_placeholder', -10);
+
+          this.nextLevel = "14";
+
+
+          const line = "You’ll pick between two choices every time. you’ll
+          decide where to allocate your time, so try not to spend all of your
+          time on the choices."
+
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+
+          this.blurb.x = 170;
+
+          this.blurb.y = 150;
+
+          this.addChild(this.blurb);
+
+
+          // programmatically summon player sprite
+
+          ct.templates.copy('janus_placeholder', 800, 360);
+
+
+          // programmatically summon the next button
+
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: wPbBN9Fcw37q39
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '15'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677098983411
+    events:
+      - eventKey: OnRoomStart
+        code: |
+          ct.transition.fadeIn(2000);
+          //ct.rooms.addBg('room_placeholder', -10);
+          this.nextLevel = "door01";
+
+          const line = "Good luck. Whenever you’re ready."
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+          this.blurb.x = 170;
+          this.blurb.y = 150;
+          this.addChild(this.blurb);
+
+          // programmatically summon player sprite
+          ct.templates.copy('janus_placeholder', 800, 360);
+
+          // programmatically summon the next button
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: WKqmnbczTBM2Bc
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: door01
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
         opacity: 1
         tint: 16777215
         scale:
           x: 1
           'y': 1
         rotation: 0
-        uid: K9h7tkTrt7761r
+        uid: 9NTfLBnBGMCrfj
         exts: {}
         customProperties: {}
-      - x: 638.99999925
-        'y': 449.33333433
+      - x: 464
+        'y': 424
         opacity: 1
         tint: 16777215
         scale:
-          x: 0.57111111
-          'y': 0.57111111
+          x: 1
+          'y': 1
         rotation: 0
-        uid: 2N8P7khCTWQbKt
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
         exts: {}
         customProperties: {}
     tiles: []
     extends: {}
-    lastmod: 1676785564268
+    lastmod: 1677105677136
     events:
       - eventKey: OnRoomStart
-        code: ct.transition.fadeIn(2000);
+        code: |
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          this.timeTotal = 10;
         arguments: {}
         lib: core
-    uid: jkJDW8fnQwnBPh
+    uid: fHbBBQWwqW3kG4
 actions: []
 emitterTandems: []
 scripts: []
-startroom: TjBPL1g82wPR8F
+startroom: fHbBBQWwqW3kG4
 contentTypes: []
 groups:
   fonts: []
@@ -968,9 +2835,9 @@ settings:
     functionWrap: false
     codeModifier: none
   branding:
-    accent: '#446adb'
+    accent: '#273C7D'
     invertPreloaderScheme: true
-    icon: -1
+    icon: C77CFMMmzFGqCJ
     splashScreen: -1
     forceSmoothIcons: false
     forceSmoothSplashScreen: false
