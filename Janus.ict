@@ -159,7 +159,7 @@ textures:
     source: /Users/frog/Downloads/room placeholder.png
     tiled: false
     ignoreTiledUse: true
-  - lastmod: 1676697843495
+  - lastmod: 1677138684471
     type: texture
     name: janus_placeholder
     untill: 0
@@ -187,7 +187,7 @@ textures:
     padding: 1
     isBlank: false
     group: !<tag:yaml.org,2002:js/undefined> ''
-    source: /Users/frog/Downloads/janus placeholder.png
+    source: /Users/frog/Desktop/janus art asets/finalJanusmasked.png
   - lastmod: 1676699683273
     type: texture
     name: player_placeholder
@@ -361,7 +361,7 @@ textures:
     isBlank: false
     group: !<tag:yaml.org,2002:js/undefined> ''
     source: /Users/frog/Downloads/rightdoor.png
-  - lastmod: 1677100774227
+  - lastmod: 1677184888290
     type: texture
     name: leftdoor
     untill: 0
@@ -491,6 +491,122 @@ textures:
     group: !<tag:yaml.org,2002:js/undefined> ''
     source: /Users/frog/Downloads/final room.png
     tiled: true
+  - lastmod: 1677120346907
+    type: texture
+    name: reflect
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 250
+      - 150
+    marginx: 0
+    marginy: 0
+    imgWidth: 500
+    imgHeight: 300
+    width: 500
+    height: 300
+    offx: 0
+    offy: 0
+    origname: ic2BG6KtLt2p3pR.png
+    shape: rect
+    left: 230
+    right: 230
+    top: 100
+    bottom: 100
+    uid: c2BG6KtLt2p3pR
+    padding: 1
+    isBlank: false
+    group: !<tag:yaml.org,2002:js/undefined> ''
+    source: /Users/frog/Downloads/reflect.png
+  - lastmod: 1677138880788
+    type: texture
+    name: unmasked_janus
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 450
+      - 600
+    marginx: 0
+    marginy: 0
+    imgWidth: 900
+    imgHeight: 1200
+    width: 900
+    height: 1200
+    offx: 0
+    offy: 0
+    origname: ikWq6nJg33Ncbhc.png
+    shape: rect
+    left: 392
+    right: 357
+    top: 491
+    bottom: 600
+    uid: kWq6nJg33Ncbhc
+    padding: 1
+    isBlank: false
+    group: !<tag:yaml.org,2002:js/undefined> ''
+    source: /Users/frog/Downloads/unmasked janus.png
+  - lastmod: 1677179005969
+    type: texture
+    name: hugging_scene
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 450
+      - 500
+    marginx: 0
+    marginy: 0
+    imgWidth: 900
+    imgHeight: 1000
+    width: 900
+    height: 1000
+    offx: 0
+    offy: 0
+    origname: ibhFqT917kbb2R6.png
+    shape: rect
+    left: 407
+    right: 450
+    top: 500
+    bottom: 500
+    uid: bhFqT917kbb2R6
+    padding: 1
+    isBlank: false
+    group: !<tag:yaml.org,2002:js/undefined> ''
+    source: /Users/frog/Downloads/hugging scene.png
+  - lastmod: 1677184012005
+    type: texture
+    name: title
+    untill: 0
+    grid:
+      - 1
+      - 1
+    axis:
+      - 250
+      - 150
+    marginx: 0
+    marginy: 0
+    imgWidth: 500
+    imgHeight: 300
+    width: 500
+    height: 300
+    offx: 0
+    offy: 0
+    origname: imQqpr644RrCKFt.png
+    shape: rect
+    left: 250
+    right: 250
+    top: 61
+    bottom: 52
+    uid: mQqpr644RrCKFt
+    padding: 1
+    isBlank: false
+    group: !<tag:yaml.org,2002:js/undefined> ''
+    source: /Users/frog/Downloads/title.png
 skeletons: []
 templates:
   - type: template
@@ -512,7 +628,7 @@ templates:
         arguments: {}
         lib: core
     extends: {}
-    lastmod: 1677091370659
+    lastmod: 1677138838217
     uid: 2N8P7khCTWQbKt
   - type: template
     name: player_placeholder
@@ -531,7 +647,7 @@ templates:
         arguments: {}
         lib: core
     extends: {}
-    lastmod: 1677091469110
+    lastmod: 1677138755018
     uid: NfkLr5QWrQFQcq
   - type: template
     name: time_UI
@@ -549,7 +665,7 @@ templates:
           this.text = new PIXI.Text(ct.room.timeTotal, {
                   fill: 0xffffff,
                   fontWeight: 400,
-                  fontSize: 50,
+                  fontSize: 80,
                   wordWrap: true,
                   wordWrapWidth: 110,
                   align: 'center'
@@ -564,7 +680,7 @@ templates:
         arguments: {}
         lib: core
     extends: {}
-    lastmod: 1677105468124
+    lastmod: 1677107577617
     uid: Fzfr5662zPKd1L
   - type: template
     name: button_placeholder
@@ -582,11 +698,13 @@ templates:
         arguments: {}
         lib: core
       - eventKey: OnCreate
-        code: this.depth = 1;
+        code: |-
+          this.tint = 0xfffff;
+          this.depth = 1;
         arguments: {}
         lib: core
     extends: {}
-    lastmod: 1677092768998
+    lastmod: 1677183849081
     uid: g5mGHFMwNT1dj8
   - type: template
     name: next_button
@@ -599,25 +717,19 @@ templates:
     events:
       - eventKey: OnCreate
         code: |-
+          this.tint = 0xfffff;
           this.scale.x = 0.3;
           this.scale.y = 0.3;
         arguments: {}
         lib: core
       - eventKey: OnPointerClick
         code: |-
-          // if (!this.transitionStarted) {
-          //     this.transitionStarted = true;
-          //     ct.transition.slideOut(750)
-          //     .then(() => {
-          //         ct.rooms.switch(ct.room.nextLevel);
-          //     });
-          // }
-
+          ct.sound.spawn('Select');
           ct.rooms.switch(ct.room.nextLevel);
         arguments: {}
         lib: core
     extends: {}
-    lastmod: 1677102669759
+    lastmod: 1677183819980
     uid: gmzTF9ncbFH5cN
   - type: template
     name: statue
@@ -629,7 +741,7 @@ templates:
     visible: true
     events: []
     extends: {}
-    lastmod: 1677101482872
+    lastmod: 1677106195299
     uid: 9NTfLBnBGMCrfj
   - type: template
     name: left_door
@@ -641,11 +753,45 @@ templates:
     visible: true
     events:
       - eventKey: OnPointerClick
-        code: ''
+        code: |
+          ct.sound.spawn('doorSelect');
+          // if the current room is door one
+          if (ct.room.name == "door01") {
+              ct.rooms.switch("A1");
+          }
+
+          else if (ct.room.name == "A1") {
+              ct.rooms.switch("A2");
+          }
+
+          else if (ct.room.name == "A2") {
+              ct.rooms.switch("A4");
+          }
+
+          else if (ct.room.name == "A3") {
+              ct.rooms.switch("A6");
+          }
+
+          else if (ct.room.name == "B1") {
+              ct.rooms.switch("B2");
+          }
+
+          else if (ct.room.name == "B3") {
+              ct.rooms.switch("B6");
+          }
+
+          else if (ct.room.name == "B2") {
+              ct.rooms.switch("B4");
+          }
         arguments: {}
         lib: core
       - eventKey: OnCreate
-        code: |-
+        code: >-
+          this.tint = 0xb190ee;
+
+          this.alpha = 0.9;
+
+
           if (ct.room.name == "door01") {
               const lineA = "(-1) study and graduate as fast as possible";
               this.text = new PIXI.Text(lineA, {
@@ -653,32 +799,37 @@ templates:
                   fontWeight: 400,
                   fontSize: 25,
                   wordWrap: true,
-                  wordWrapWidth: 110,
-                  align: 'center'
+                  wordWrapWidth: 180,
+                  align: 'center',
               });
               this.text.anchor.x = this.text.anchor.y = 0.5;
               this.addChild(this.text);
-          } else if (ct.room.name == "door02") {
-              const lineB = "(-3) Put family needs before your career goals";
-              this.text = new PIXI.Text("test left", {
+          } 
+
+          else if (ct.room.name == "A1" || ct.room.name == "B1") {
+              const lineB = "(-3) Support a friend during hard times";
+              this.text = new PIXI.Text(lineB, {
                   fill: 0xffffff,
                   fontWeight: 400,
                   fontSize: 20,
                   wordWrap: true,
-                  wordWrapWidth: 110,
-                  align: 'center'
+                  wordWrapWidth: 180,
+                  align: 'center',
               });
               this.text.anchor.x = this.text.anchor.y = 0.5;
               this.addChild(this.text);
-          } else if (ct.room.name == "door03") {
-              const lineC = "(-3) Choose to self-heal, find happiness";
+          } 
+
+          else if (ct.room.name == "A2" || ct.room.name == "A3" || ct.room.name
+          == "B2" || ct.room.name == "B3") {
+              const lineC = "(-3) Choose to self-heal, reconnect with loved ones";
               this.text = new PIXI.Text(lineC, {
                   fill: 0xffffff,
                   fontWeight: 400,
                   fontSize: 20,
                   wordWrap: true,
-                  wordWrapWidth: 110,
-                  align: 'center'
+                  wordWrapWidth: 180,
+                  align: 'center',
               });
               this.text.anchor.x = this.text.anchor.y = 0.5;
               this.addChild(this.text);
@@ -686,7 +837,7 @@ templates:
         arguments: {}
         lib: core
     extends: {}
-    lastmod: 1677105345597
+    lastmod: 1677187149590
     uid: kk8B4J65PgJp71
   - type: template
     name: right_door
@@ -698,39 +849,45 @@ templates:
     visible: true
     events:
       - eventKey: OnCreate
-        code: |-
+        code: >-
+          this.tint = 0xd0bdf5;
+
+          this.alpha = 0.9;
+
+
           if (ct.room.name == "door01") {
-              const lineA = "(-3) study, change career paths, be happier";
+              const lineA = "(-3) Make a risky change in career, be happier";
               this.text = new PIXI.Text(lineA, {
                   fill: 0xffffff,
                   fontWeight: 400,
                   fontSize: 25,
                   wordWrap: true,
-                  wordWrapWidth: 120,
+                  wordWrapWidth: 180,
                   align: 'center'
               });
               this.text.anchor.x = this.text.anchor.y = 0.5;
               this.addChild(this.text);
-          } else if (ct.room.name == "door02") {
-              const lineB = "(-2) Move away, focus on family, grow distant";
-              this.text = new PIXI.Text("test left", {
+          } else if (ct.room.name == "A1" || ct.room.name == "B1") {
+              const lineB = "(-2) Focus on family, grow distant from friends for a while";
+              this.text = new PIXI.Text(lineB, {
                   fill: 0xffffff,
                   fontWeight: 400,
                   fontSize: 20,
                   wordWrap: true,
-                  wordWrapWidth: 110,
+                  wordWrapWidth: 180,
                   align: 'center'
               });
               this.text.anchor.x = this.text.anchor.y = 0.5;
               this.addChild(this.text);
-          } else if (ct.room.name == "door03") {
-              const lineC = "(-1) Ignore past disagreements, move on";
+          } else if (ct.room.name == "A2" || ct.room.name == "A3" ||
+          ct.room.name == "B2" || ct.room.name == "B3") {
+              const lineC = "(-1) Ignore past disagreements with family, slow healing";
               this.text = new PIXI.Text(lineC, {
                   fill: 0xffffff,
                   fontWeight: 400,
                   fontSize: 20,
                   wordWrap: true,
-                  wordWrapWidth: 110,
+                  wordWrapWidth: 180,
                   align: 'center'
               });
               this.text.anchor.x = this.text.anchor.y = 0.5;
@@ -738,9 +895,132 @@ templates:
           }
         arguments: {}
         lib: core
+      - eventKey: OnPointerClick
+        code: |
+          ct.sound.spawn('doorSelect');
+          // if the current room is door one
+          if (ct.room.name == "door01") {
+              ct.rooms.switch("B1");
+          }
+
+          else if (ct.room.name == "B1") {
+              ct.rooms.switch("B3");
+          }
+
+          else if (ct.room.name == "B2") {
+              ct.rooms.switch("B5");
+          }
+
+          else if (ct.room.name == "B3") {
+              ct.rooms.switch("B7");
+          }
+
+          else if (ct.room.name == "A1") {
+              ct.rooms.switch("A3");
+          }
+
+          else if (ct.room.name == "A3") {
+              ct.rooms.switch("A7");
+          }
+
+          else if (ct.room.name == "A2") {
+              ct.rooms.switch("A5");
+          }
+        arguments: {}
+        lib: core
     extends: {}
-    lastmod: 1677103566948
+    lastmod: 1677187065773
     uid: DwtL4hk2Nzqk1n
+  - type: template
+    name: reflect
+    depth: 0
+    texture: c2BG6KtLt2p3pR
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnCreate
+        code: |-
+          this.tint = 0xfffff;
+          this.scale.x = 0.3;
+          this.scale.y = 0.3;
+        arguments: {}
+        lib: core
+      - eventKey: OnPointerClick
+        code: |-
+          ct.sound.spawn('Select');
+          ct.rooms.switch('a_rm');
+        arguments: {}
+        lib: core
+    extends: {}
+    lastmod: 1677183836697
+    uid: 8mgqtb8LQMr8r2
+  - type: template
+    name: timeIcon
+    depth: 0
+    texture: C77CFMMmzFGqCJ
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events: []
+    extends: {}
+    lastmod: 1677130902963
+    uid: RhMkfw844nLt8t
+  - type: template
+    name: unmasked_janus
+    depth: 0
+    texture: kWq6nJg33Ncbhc
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnCreate
+        code: |
+          this.tint = 0xFFC0CB;
+          this.scale.x = 0.6;
+          this.scale.y = 0.6;
+        arguments: {}
+        lib: core
+    extends: {}
+    lastmod: 1677139108216
+    uid: 2Qk1JfTmf5H4tw
+  - type: template
+    name: hugging_scene
+    depth: 0
+    texture: bhFqT917kbb2R6
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnCreate
+        code: |-
+          this.scale.x = 0.9;
+          this.scale.y = 0.9;
+        arguments: {}
+        lib: core
+    extends: {}
+    lastmod: 1677179420766
+    uid: QRKQfzfDbHDPpQ
+  - type: template
+    name: title
+    depth: 0
+    texture: mQqpr644RrCKFt
+    playAnimationOnStart: false
+    loopAnimation: true
+    animationFPS: 30
+    visible: true
+    events:
+      - eventKey: OnCreate
+        code: this.tint = 0xffffff;
+        arguments: {}
+        lib: core
+    extends: {}
+    lastmod: 1677184610088
+    uid: WRpJ5kt94mNbgR
 sounds:
   - name: Select
     uid: LGPDqGf4JjH42R
@@ -749,22 +1029,43 @@ sounds:
     lastmod: 1676831800065
     poolSize: 1
     origname: sLGPDqGf4JjH42R.ogg
-  - name: main_menu
+  - name: main
     uid: 9WNjpdwQqH4k2Q
     isMusic: true
     type: sound
     lastmod: 1676940601960
     poolSize: 5
     origname: s9WNjpdwQqH4k2Q.wav
-  - name: intro_dialogue
+  - name: ping
     uid: 57p8hdw9TRb4t8
-    isMusic: true
+    isMusic: false
     type: sound
     lastmod: 1676941569529
     poolSize: 5
     origname: s57p8hdw9TRb4t8.wav
+  - name: doorSelect
+    uid: HHn8Rh7dbH6zdW
+    isMusic: false
+    type: sound
+    lastmod: 1677130643707
+    poolSize: 5
+    origname: sHHn8Rh7dbH6zdW.ogg
+  - name: mystery
+    uid: h69Cqjd24qNQhW
+    isMusic: true
+    type: sound
+    lastmod: 1677180304518
+    poolSize: 5
+    origname: sh69Cqjd24qNQhW.wav
+  - name: hope
+    uid: M3phH3dJJK5TCW
+    isMusic: true
+    type: sound
+    lastmod: 1677139101317
+    poolSize: 5
+    origname: sM3phH3dJJK5TCW.wav
 styles:
-  - name: Style_wnjfhF
+  - name: shadow
     uid: DqJh85pFwnjfhF
     origname: swnjfhF
     font:
@@ -772,7 +1073,12 @@ styles:
       size: 12
       weight: 400
       italic: true
-    lastmod: 1676959615894
+    lastmod: 1677184403253
+    shadow:
+      color: '#000000'
+      x: 1
+      'y': 2
+      blur: 5
 fonts: []
 rooms:
   - type: room
@@ -810,8 +1116,12 @@ rooms:
         customProperties: {}
     tiles: []
     extends: {}
-    lastmod: 1677101088794
-    events: []
+    lastmod: 1677107862142
+    events:
+      - eventKey: OnRoomStart
+        code: ''
+        arguments: {}
+        lib: core
     uid: pmqGMgr7t5f6mp
   - type: room
     oncreate: ''
@@ -870,8 +1180,8 @@ rooms:
         uid: g5mGHFMwNT1dj8
         exts: {}
         customProperties: {}
-      - x: -128
-        'y': 0
+      - x: 448
+        'y': 384
         opacity: 1
         tint: 16777215
         scale:
@@ -881,9 +1191,20 @@ rooms:
         uid: 9NTfLBnBGMCrfj
         exts: {}
         customProperties: {}
+      - x: 1000
+        'y': 192
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 0.9
+          'y': 0.9
+        rotation: 0
+        uid: WRpJ5kt94mNbgR
+        exts: {}
+        customProperties: {}
     tiles: []
     extends: {}
-    lastmod: 1677099410455
+    lastmod: 1677184306451
     events:
       - eventKey: OnRoomStart
         code: |-
@@ -892,6 +1213,8 @@ rooms:
           //     volume: 0.3
           // });
 
+          ct.transition.fadeIn(5000);
+          //ct.sound.spawn('main');
           this.nextLevel = '01';
         arguments: {}
         lib: core
@@ -931,11 +1254,11 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677099035161
+    lastmod: 1677181714716
     events:
       - eventKey: OnRoomStart
         code: >
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
 
           //ct.rooms.addBg('room_placeholder', -10);
 
@@ -1007,14 +1330,14 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677099665687
+    lastmod: 1677181722516
     events:
       - eventKey: OnRoomStart
         code: |
           // add music here
           //ct.sound.spawn('intro_dialogue');
 
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
           this.nextLevel = "c_rm";
           const line = "Can’t I try again?";
 
@@ -1071,11 +1394,13 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677099847170
+    lastmod: 1677183237297
     events:
       - eventKey: OnRoomStart
         code: >
-          ct.transition.fadeIn(2000);
+          ct.sound.fade('mystery', .7, 3000);
+
+          ct.transition.fadeIn(1000);
 
           this.nextLevel = "d_rm";
 
@@ -1100,7 +1425,7 @@ rooms:
 
           // programmatically summon player sprite
 
-          ct.templates.copy('janus_placeholder', 800, 300);
+          ct.templates.copy('janus_placeholder', 800, 400);
 
 
           // programmatically summon the next button
@@ -1144,16 +1469,17 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677099877352
+    lastmod: 1677184643525
     events:
       - eventKey: OnRoomStart
         code: >
           // add music here
 
-          //ct.sound.spawn('intro_dialogue');
+          ct.sound.fade('mystery', .4, 2000);
 
 
-          ct.transition.fadeIn(2000);
+
+          ct.transition.fadeIn(1000);
 
           this.nextLevel = "e_rm";
 
@@ -1165,7 +1491,7 @@ rooms:
               fill: 0xffffff,
               fontSize: 25,
               wordWrap: true,
-              wordWrapWidth: 400
+              wordWrapWidth: 400,
           });
 
           this.blurb.x = 700;
@@ -1183,6 +1509,10 @@ rooms:
           // programmatically summon the next button
 
           ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+      - eventKey: OnRoomEnd
+        code: 'ct.sound.fade(''mystery'', 0, 1000);'
         arguments: {}
         lib: core
     uid: rj5MQDhG5bnpfc
@@ -1221,11 +1551,12 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677099914167
+    lastmod: 1677183743178
     events:
       - eventKey: OnRoomStart
         code: |
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(5000);
+          ct.sound.spawn('hope');
           this.nextLevel = "f_rm";
 
           const line = "But I do know you." 
@@ -1241,7 +1572,7 @@ rooms:
           this.addChild(this.blurb);
 
           // programmatically summon player sprite
-          ct.templates.copy('janus_placeholder', 800, 300);
+          ct.templates.copy('unmasked_janus', 800, 400);
 
           // programmatically summon the next button
           ct.templates.copy('next_button', 1000, 650);
@@ -1283,14 +1614,14 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677099937934
+    lastmod: 1677183647742
     events:
       - eventKey: OnRoomStart
         code: |
           // add music here
           //ct.sound.spawn('intro_dialogue');
 
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
           this.nextLevel = "g_rm";
           const line = "…I don’t understand..";
 
@@ -1347,11 +1678,11 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677099964667
+    lastmod: 1677182057514
     events:
       - eventKey: OnRoomStart
         code: >
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
 
           this.nextLevel = "g2_rm";
 
@@ -1379,7 +1710,7 @@ rooms:
 
           // programmatically summon player sprite
 
-          ct.templates.copy('janus_placeholder', 800, 300);
+          ct.templates.copy('unmasked_janus', 800, 400);
 
 
           // programmatically summon the next button
@@ -1423,11 +1754,11 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677100013716
+    lastmod: 1677182069863
     events:
       - eventKey: OnRoomStart
         code: >
-          //ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(3000);
 
           this.nextLevel = "h2_rm";
 
@@ -1453,7 +1784,7 @@ rooms:
 
           // programmatically summon player sprite
 
-          ct.templates.copy('janus_placeholder', 800, 300);
+          ct.templates.copy('hugging_scene', 800, 400);
 
 
           // programmatically summon the next button
@@ -1497,7 +1828,7 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677100057550
+    lastmod: 1677182082897
     events:
       - eventKey: OnRoomStart
         code: >-
@@ -1526,7 +1857,7 @@ rooms:
 
           // programmatically summon player sprite
 
-          ct.templates.copy('janus_placeholder', 800, 300);
+          ct.templates.copy('hugging_scene', 800, 400);
 
 
           // programmatically summon the next button
@@ -1570,7 +1901,7 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677099985417
+    lastmod: 1677182063631
     events:
       - eventKey: OnRoomStart
         code: >
@@ -1601,7 +1932,7 @@ rooms:
 
           // programmatically summon player sprite
 
-          ct.templates.copy('janus_placeholder', 800, 300);
+          ct.templates.copy('unmasked_janus', 800, 400);
 
 
           // programmatically summon the next button
@@ -1645,7 +1976,7 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677100038234
+    lastmod: 1677182074614
     events:
       - eventKey: OnRoomStart
         code: >
@@ -1677,7 +2008,7 @@ rooms:
 
           // programmatically summon player sprite
 
-          ct.templates.copy('janus_placeholder', 800, 300);
+          ct.templates.copy('hugging_scene', 800, 400);
 
 
           // programmatically summon the next button
@@ -1721,16 +2052,16 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677101160542
+    lastmod: 1677181565050
     events:
       - eventKey: OnRoomStart
         code: >
           // add music here
 
-          //ct.sound.spawn('intro_dialogue');
+          ct.sound.spawn('mystery');
 
 
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
 
           this.nextLevel = "02";
 
@@ -1798,14 +2129,14 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098593045
+    lastmod: 1677181593101
     events:
       - eventKey: OnRoomStart
         code: |
           // add music here
           //ct.sound.spawn('intro_dialogue');
 
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
           this.nextLevel = "04";
           const line = "what the- who are you?";
 
@@ -1862,7 +2193,7 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098689579
+    lastmod: 1677181619584
     events:
       - eventKey: OnRoomStart
         code: >
@@ -1871,7 +2202,7 @@ rooms:
           //ct.sound.spawn('intro_dialogue');
 
 
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
 
           this.nextLevel = "06";
 
@@ -1939,7 +2270,7 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098817143
+    lastmod: 1677183788563
     events:
       - eventKey: OnRoomStart
         code: >
@@ -1948,7 +2279,7 @@ rooms:
           //ct.sound.spawn('intro_dialogue');
 
 
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
 
           this.nextLevel = "10";
 
@@ -2017,7 +2348,7 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098962726
+    lastmod: 1677183759728
     events:
       - eventKey: OnRoomStart
         code: >
@@ -2026,7 +2357,7 @@ rooms:
           //ct.sound.spawn('intro_dialogue');
 
 
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
 
           this.nextLevel = "15";
 
@@ -2094,11 +2425,11 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677099780436
+    lastmod: 1677181570634
     events:
       - eventKey: OnRoomStart
         code: |
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
           //ct.rooms.addBg('room_placeholder', -10);
           this.nextLevel = "03";
 
@@ -2157,11 +2488,11 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098666578
+    lastmod: 1677181599616
     events:
       - eventKey: OnRoomStart
         code: >
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
 
           //ct.rooms.addBg('room_placeholder', -10);
 
@@ -2232,11 +2563,11 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098743980
+    lastmod: 1677181615568
     events:
       - eventKey: OnRoomStart
         code: >
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
 
           //ct.rooms.addBg('room_placeholder', -10);
 
@@ -2307,7 +2638,7 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098764695
+    lastmod: 1677181625883
     events:
       - eventKey: OnRoomStart
         code: >
@@ -2315,7 +2646,7 @@ rooms:
 
           //ct.rooms.addBg('room_placeholder', -10);
 
-          this.nextLevel = "b_rm";
+          this.nextLevel = "08";
 
 
           const line = "Because Your mind is spinning all your gears, worrying
@@ -2385,7 +2716,7 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098792960
+    lastmod: 1677181631117
     events:
       - eventKey: OnRoomStart
         code: >
@@ -2393,7 +2724,7 @@ rooms:
 
           //ct.rooms.addBg('room_placeholder', -10);
 
-          this.nextLevel = "08";
+          this.nextLevel = "09";
 
 
           const line = "And there’s something else,  isn’t there. Some dark
@@ -2458,24 +2789,24 @@ rooms:
         scaleY: 0.8
         repeat: repeat
     copies:
-      - x: 334
-        'y': 434
+      - x: 302
+        'y': 494
         opacity: 1
         tint: 16777215
         scale:
-          x: 1.1400000000000001
-          'y': 1.1400000000000001
+          x: 1.46
+          'y': 1.46
         rotation: 0
-        uid: Fzfr5662zPKd1L
+        uid: RhMkfw844nLt8t
         exts: {}
         customProperties: {}
     tiles: []
     extends: {}
-    lastmod: 1677098842560
+    lastmod: 1677183784130
     events:
       - eventKey: OnRoomStart
         code: >
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
 
           //ct.rooms.addBg('room_placeholder', -10);
 
@@ -2546,11 +2877,11 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098903743
+    lastmod: 1677183773463
     events:
       - eventKey: OnRoomStart
         code: |
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
           //ct.rooms.addBg('room_placeholder', -10);
           this.nextLevel = "13";
 
@@ -2609,7 +2940,7 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098930893
+    lastmod: 1677183766546
     events:
       - eventKey: OnRoomStart
         code: >
@@ -2685,11 +3016,11 @@ rooms:
     copies: []
     tiles: []
     extends: {}
-    lastmod: 1677098983411
+    lastmod: 1677183754362
     events:
       - eventKey: OnRoomStart
         code: |
-          ct.transition.fadeIn(2000);
+          ct.transition.fadeIn(1000);
           //ct.rooms.addBg('room_placeholder', -10);
           this.nextLevel = "door01";
 
@@ -2781,21 +3112,1360 @@ rooms:
         customProperties: {}
     tiles: []
     extends: {}
-    lastmod: 1677105677136
+    lastmod: 1677112293619
     events:
       - eventKey: OnRoomStart
         code: |
+          // add fade in
+          ct.transition.fadeIn(2000);
+
           // set showing UI to true
           ct.rooms.append('layer_UI');
 
+          // starting total
           this.timeTotal = 10;
+
+          // this.isFirst = true; // for first doors level
+          // this.isSecond = false; // for second doors level
+          // this.isthird = false; // for third doors level
         arguments: {}
         lib: core
     uid: fHbBBQWwqW3kG4
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: A1
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677184650487
+    events:
+      - eventKey: OnRoomStart
+        code: |
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 9;
+
+          // this.isFirst = true; // for first doors level
+          // this.isSecond = false; // for second doors level
+          // this.isthird = false; // for third doors level
+        arguments: {}
+        lib: core
+    uid: gP54tfj6Pz8f5n
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: B1
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677112347352
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 7;
+
+        arguments: {}
+        lib: core
+    uid: PqrBBwC3ghncfj
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: A2
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677112362686
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 6;
+
+        arguments: {}
+        lib: core
+    uid: TzP9qqf1R9Pb5N
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: A3
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677112386120
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 7;
+
+        arguments: {}
+        lib: core
+    uid: phN78R5MTTL44W
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: A4
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+      - x: 1104
+        'y': 640
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 0.5
+          'y': 0.5
+        rotation: 0
+        uid: 8mgqtb8LQMr8r2
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677120417140
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 3;
+
+        arguments: {}
+        lib: core
+    uid: 2G2W511b9JjJm5
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: A5
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+      - x: 1104
+        'y': 640
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 0.5
+          'y': 0.5
+        rotation: 0
+        uid: 8mgqtb8LQMr8r2
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677120445806
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 5;
+
+        arguments: {}
+        lib: core
+    uid: 9QTc6GmTKbMGGC
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: B2
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677112498406
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 4;
+
+        arguments: {}
+        lib: core
+    uid: K4FRfzF7qw8c5j
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: B3
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677112514174
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 5;
+
+        arguments: {}
+        lib: core
+    uid: FfGRWtCdtgCd67
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: B4
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+      - x: 1104
+        'y': 640
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 0.5
+          'y': 0.5
+        rotation: 0
+        uid: 8mgqtb8LQMr8r2
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677120568106
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 1;
+
+        arguments: {}
+        lib: core
+    uid: j1bLPRR6MGJKn3
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: B5
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+      - x: 1104
+        'y': 640
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 0.5
+          'y': 0.5
+        rotation: 0
+        uid: 8mgqtb8LQMr8r2
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677120595605
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 3;
+
+        arguments: {}
+        lib: core
+    uid: 93dj97CMR3kbtF
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: B6
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+      - x: 1104
+        'y': 640
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 0.5
+          'y': 0.5
+        rotation: 0
+        uid: 8mgqtb8LQMr8r2
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677120617554
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 2;
+
+        arguments: {}
+        lib: core
+    uid: fDbmkc2T8D22cD
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: B7
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+      - x: 1104
+        'y': 640
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 0.5
+          'y': 0.5
+        rotation: 0
+        uid: 8mgqtb8LQMr8r2
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677120641971
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 4;
+
+        arguments: {}
+        lib: core
+    uid: m5zddtjgRCwFD9
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: A6
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+      - x: 1104
+        'y': 640
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 0.5
+          'y': 0.5
+        rotation: 0
+        uid: 8mgqtb8LQMr8r2
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677120519305
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 4;
+
+        arguments: {}
+        lib: core
+    uid: G49CMMLgqMc2RR
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: A7
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: no-repeat
+    copies:
+      - x: 616
+        'y': 384
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: 9NTfLBnBGMCrfj
+        exts: {}
+        customProperties: {}
+      - x: 464
+        'y': 424
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: kk8B4J65PgJp71
+        exts: {}
+        customProperties: {}
+      - x: 834
+        'y': 437
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 1
+          'y': 1
+        rotation: 0
+        uid: DwtL4hk2Nzqk1n
+        exts: {}
+        customProperties: {}
+      - x: 1104
+        'y': 640
+        opacity: 1
+        tint: 16777215
+        scale:
+          x: 0.5
+          'y': 0.5
+        rotation: 0
+        uid: 8mgqtb8LQMr8r2
+        exts: {}
+        customProperties: {}
+    tiles: []
+    extends: {}
+    lastmod: 1677120536925
+    events:
+      - eventKey: OnRoomStart
+        code: |+
+          // add fade in
+          ct.transition.fadeIn(2000);
+
+          // set showing UI to true
+          ct.rooms.append('layer_UI');
+
+          // starting total
+          this.timeTotal = 6;
+
+        arguments: {}
+        lib: core
+    uid: 2K4L8qcj8bcnjr
+  - type: room
+    oncreate: ''
+    onstep: ''
+    ondraw: ''
+    onleave: ''
+    gridX: 64
+    gridY: 64
+    diagonalGrid: false
+    simulate: true
+    width: 1280
+    height: 720
+    restrictCamera: false
+    restrictMaxX: 1280
+    restrictMinX: 1280
+    restrictMaxY: 720
+    restrictMinY: 720
+    isUi: false
+    name: '11'
+    backgroundColor: '#000000'
+    follow: -1
+    backgrounds:
+      - depth: -10
+        texture: 5tTJpKPhmCg9gN
+        shiftX: -33
+        shiftY: -110
+        parallaxX: 1
+        parallaxY: 1
+        movementX: 0
+        movementY: 0
+        scaleX: 0.9
+        scaleY: 0.8
+        repeat: repeat
+    copies: []
+    tiles: []
+    extends: {}
+    lastmod: 1677183779228
+    events:
+      - eventKey: OnRoomStart
+        code: |
+          // add music here
+          //ct.sound.spawn('intro_dialogue');
+
+          ct.transition.fadeIn(1000);
+          this.nextLevel = "12";
+          const line = "…Fine (So much for my own will)";
+
+          this.blurb = new PIXI.Text(line, {
+              fill: 0xffffff,
+              fontSize: 25,
+              wordWrap: true,
+              wordWrapWidth: 400
+          });
+          this.blurb.x = 700;
+          this.blurb.y = 400;
+          this.addChild(this.blurb);
+
+          // programmatically summon player sprite
+          ct.templates.copy('player_placeholder', 1, 1);
+
+          // programmatically summon the next button
+          ct.templates.copy('next_button', 1000, 650);
+        arguments: {}
+        lib: core
+    uid: K5JTHbcMjc1jB8
 actions: []
 emitterTandems: []
 scripts: []
-startroom: fHbBBQWwqW3kG4
+startroom: TjBPL1g82wPR8F
 contentTypes: []
 groups:
   fonts: []
@@ -2812,10 +4482,10 @@ groups:
 settings:
   authoring:
     author: Bardic Blaze
-    site: ''
-    title: BHahn
+    site: 'https://bardicblaze.itch.io/janus-analysis'
+    title: Janus Analysis
     version:
-      - 0
+      - 1
       - 0
       - 0
     versionPostfix: ''
@@ -2835,7 +4505,7 @@ settings:
     functionWrap: false
     codeModifier: none
   branding:
-    accent: '#273C7D'
+    accent: 'rgba(11,17,36,0.79)'
     invertPreloaderScheme: true
     icon: C77CFMMmzFGqCJ
     splashScreen: -1
